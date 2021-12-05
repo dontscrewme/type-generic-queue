@@ -90,6 +90,11 @@ size_t getQueueSpace(queue_t* me)
 	return me->space;
 }
 
+size_t getQueueSize(queue_t* me)
+{
+        return me->queue_length - me->space;
+}
+
 void deleteQueue(queue_t* me)
 {
 	free(me);
