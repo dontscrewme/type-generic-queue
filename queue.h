@@ -13,6 +13,7 @@ bool enqueue(queue_t* me, const void* item);
 bool dequeue(queue_t* me, void* item);
 bool queueIsFull(queue_t* me);
 size_t getQueueSpace(queue_t* me);
+size_t getQueueSize(queue_t* me);
 void deleteQueue(queue_t* me);
 
 
