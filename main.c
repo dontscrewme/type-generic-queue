@@ -68,6 +68,7 @@ int main(void) {
   dequeue(IntQueue, &x);
   printf("x = %d\n", x);
 
+  deleteQueue(IntQueue);
   printf("\n");
 
 
@@ -87,5 +88,6 @@ int main(void) {
   dequeue(stringQueue, &first);
   printf("first = %s\n", first);
 
+  deleteQueue(stringQueue);
   return 0;
 }
