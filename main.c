@@ -2,7 +2,51 @@
 #include <stdint.h>
 #include "queue.h"
 
+#define MAX 5
+
+struct person {
+  int age;
+  int height;
+  int weight;
+};
+
+void testQueue() {
+  queue_t* q = newQueue(MAX, sizeof(struct person));  
+
+  struct person p1;
+  for (int i=0; i<MAX; i++) {
+    p1.age = i;
+    p1.height = i;
+    p1.weight = i;
+    assert(enqueue(q, &p1) == true);
+  }
+
+  
+  for (int i = 0; i < 5; i++) {
+    assert(dequeue(q, &p1) == true);
+    assert(p1.age == i);
+    assert(p1.height == i);
+    assert(p1.weight == i);
+    
+  }
+
+  assert(dequeue(q, &p1) == false);
+
+  for (int i = 0; i < 5; i++) {
+    p1.age = i;
+    p1.height = i;
+    p1.weight = i;
+    assert(enqueue(q, &p1) == true);
+  }
+  assert(enqueue(q, &p1) == false);
+
+  deleteQueue(q);
+}
+
+
 int main(void) {
+
+  testQueue();
 
   /*example 1*/
   queue_t* IntQueue = newQueue(3, sizeof(int));
@@ -45,5 +89,3 @@ int main(void) {
 
   return 0;
 }
-
-
